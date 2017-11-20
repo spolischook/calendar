@@ -1,11 +1,19 @@
 artist: Тетяна Черевань
 
+flash:
+  thanks_for_your_order: |
+    Дякую за ваше замовлення!<br>
+    Чекайте на повідомлення про доставку
+
 form:
   name: Призвище та Ім'я
   phone: Телефон
   country: Країна
   city: Місто
   np: Номер нової пошти
+  amount: Кількість шт.
+  social_network_account: Аккаунт (nickname) в соціальній мережі (FB, Inst)
+  submit: Замовити Календар
 
 header:
   h1: Арт Календар 2018
@@ -14,7 +22,7 @@ header:
   calendar: Друкований настінний календар з авторськими работами
   about: Проект "Коло Життя"
   about_artist: Тетяна Черевань, художник
-  fill_form: Заповніть, будь-ласочка, форму замовлення Календаря 2018
+  fill_form: Заповніть, будь-ласка, форму замовлення Календаря 2018
   language_en: |
     Eng <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="40" height="20">
         <clipPath id="t">

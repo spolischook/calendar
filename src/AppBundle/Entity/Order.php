@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Customer
  *
- * @ORM\Table(name="customer")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CustomerRepository")
+ * @ORM\Table(name="orders")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\OrderRepository")
  */
-class Customer
+class Order
 {
     /**
      * @var int
@@ -31,14 +31,14 @@ class Customer
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="phone", type="string", length=255)
+     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
      */
     private $phone;
 
@@ -56,6 +56,27 @@ class Customer
      */
     private $city;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="np", type="integer", nullable=true)
+     */
+    private $np;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="amount", type="integer")
+     */
+    private $amount;
+
+    /**
+     * Social network account
+     * @var string
+     *
+     * @ORM\Column(name="snAccount", type="string", length=255)
+     */
+    private $snAccount;
 
     /**
      * Get id
@@ -72,7 +93,7 @@ class Customer
      *
      * @param string $name
      *
-     * @return Customer
+     * @return Order
      */
     public function setName($name)
     {
@@ -96,7 +117,7 @@ class Customer
      *
      * @param string $email
      *
-     * @return Customer
+     * @return Order
      */
     public function setEmail($email)
     {
@@ -120,7 +141,7 @@ class Customer
      *
      * @param string $phone
      *
-     * @return Customer
+     * @return Order
      */
     public function setPhone($phone)
     {
@@ -144,7 +165,7 @@ class Customer
      *
      * @param string $country
      *
-     * @return Customer
+     * @return Order
      */
     public function setCountry($country)
     {
@@ -168,7 +189,7 @@ class Customer
      *
      * @param string $city
      *
-     * @return Customer
+     * @return Order
      */
     public function setCity($city)
     {
@@ -185,6 +206,62 @@ class Customer
     public function getCity()
     {
         return $this->city;
+    }
+
+    /**
+     * @param string $np
+     * @return Order
+     */
+    public function setNp($np)
+    {
+        $this->np = $np;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNp()
+    {
+        return $this->np;
+    }
+
+    /**
+     * @param string $amount
+     * @return Order
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    /**
+     * @param string $snAccount
+     * @return Order
+     */
+    public function setSnAccount($snAccount)
+    {
+        $this->snAccount = $snAccount;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSnAccount()
+    {
+        return $this->snAccount;
     }
 }
 

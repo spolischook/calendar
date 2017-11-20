@@ -12,7 +12,7 @@
             }(document, 'script', 'facebook-jssdk'));</script>
 
         <article itemscope itemtype="http://schema.org/VisualArtwork">
-            <h1 itemprop="name">{{ 'header.h1'|trans }}</h1>
+            <h1 id="main-header" itemprop="name">{{ 'header.h1'|trans }}</h1>
 
             {% if app.debug %}
                 <h2 class="device device-1">Desktop</h2>
@@ -33,6 +33,13 @@
             <h2 itemprop="creator" itemscope itemtype="http://schema.org/Person">
                 {{ 'header.by'|trans }} <span itemprop="name">{{ 'artist'|trans }}</span>
             </h2>
+
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    <h3>{{ message|trans|raw }}</h3>
+                </div>
+            {% endfor %}
+
             {#<h3 id="calendar">{{ 'header.calendar'|trans }}</h3>#}
             <div id="calendar-images">
                 {% for i in 0..13 %}
@@ -66,31 +73,68 @@
             <h3 id="buy-it">{{ 'header.fill_form'|trans }}</h3>
             <div id="customer-form">
                 {{ form_start(form) }}
-                {{ form_widget(form) }}
+                <div>
+                    {{ form_label(form.name) }}
+                    {{ form_errors(form.name) }}
+                    {{ form_widget(form.name) }}
+                </div>
+                <div>
+                    {{ form_label(form.phone) }}
+                    {{ form_errors(form.phone) }}
+                    {{ form_widget(form.phone) }}
+                </div>
+                <div>
+                    {{ form_label(form.country) }}
+                    {{ form_errors(form.country) }}
+                    {{ form_widget(form.country) }}
+                </div>
+                <div>
+                    {{ form_label(form.city) }}
+                    {{ form_errors(form.city) }}
+                    {{ form_widget(form.city) }}
+                </div>
+                <div>
+                    {{ form_label(form.np) }}
+                    {{ form_errors(form.np) }}
+                    {{ form_widget(form.np) }}
+                </div>
+                <div>
+                    {{ form_label(form.amount) }}
+                    {{ form_errors(form.amount) }}
+                    {{ form_widget(form.amount) }}
+                </div>
+                <div>
+                    {{ form_label(form.snAccount) }}
+                    {{ form_errors(form.snAccount) }}
+                    {{ form_widget(form.snAccount) }}
+                </div>
                 <button type="submit">{{ 'form.submit'|trans }}</button>
                 {{ form_end(form) }}
             </div>
         </article>
-        <footer>Foo</footer>
 {% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
     <style>
-        nav#menu-main a { text-decoration: none; color: #fff }
-        nav#languages a { text-decoration: none; font-weight: bold; }
         h1, h2 { line-height: 1.2; margin: 0 0 .5em; text-align: center; }
         h1 { font-size: 36px; }
         h2 { font-size: 21px; margin-bottom: 1em; }
         p { margin: 0 0 1em 0; }
         a { color: #0000F0; }
         a:hover { text-decoration: none; }
-        article { min-height: 1000px; background-color: #6b9311; padding: 2em; }
+        article { min-height: 1000px; background-color: #F5F5F5; padding: 2em; display: flex; flex-direction: column; }
         article #calendar-images { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around }
         article div#embedded-fb-page, article #description video { min-height: 500px; }
-        footer { background-color: #8959A8 }
+
         form { display: block; }
+        form label { display: block; clear: both; }
+        form input, form select { border-radius: 4px; padding: 6px 12px; border: 1px solid #ccc; box-shadow: inset 0 1px 1px rgba(0,0,0,.075); min-width: 70% }
+        form button[type=submit] {background-color: #4CAF50; border-radius: 4px;border: none;color: white;padding: 16px 32px;text-decoration: none;margin: 4px 2px;cursor: pointer;}
         video source { width: 100%; height: auto; }
+
+        .alert-success { background-color: #66dd66; text-align: center; }
+        .alert { margin: 5px 0; }
 
         .device { display: none; }
 
@@ -101,6 +145,7 @@
         @media (min-width: 1281px) {
             video { max-width: 60%; }
             .device-1 { display: block; }
+            #calendar-images img { flex-basis: 30% }
         }
 
         /*

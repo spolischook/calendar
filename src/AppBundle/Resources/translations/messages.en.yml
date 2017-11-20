@@ -1,5 +1,10 @@
 artist: Tetiana Cherevan
 
+flash:
+  thanks_for_your_order: |
+    Thanks for your oder!<br>
+    We'll let you know about shipment
+
 form:
   name: Name
   phone: Phone
@@ -7,6 +12,7 @@ form:
   city: City
   np: Nova Poshta number
   amount: Amount
+  social_network_account: Account in social networks (FB, Inst)
   submit: Order Calendar
 
 header:

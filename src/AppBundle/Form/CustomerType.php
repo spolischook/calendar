@@ -2,10 +2,10 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Customer;
+use AppBundle\Entity\Order;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -24,19 +24,23 @@ class CustomerType extends AbstractType
                 'label' => 'form.phone',
             ])
             ->add('country', CountryType::class, [
+                'label' => 'form.country',
                 'attr' => [
-                    'style' => 'max-width: 200px',
-                    'label' => 'form.country',
-                ]
+//                    'style' => 'max-width: 200px',
+                ],
+                'preferred_choices' => ['UA'],
             ])
             ->add('city', null, [
                 'label' => 'form.city',
             ])
-            ->add('np', null, [
+            ->add('np', IntegerType::class, [
                 'label' => 'form.np',
             ])
-            ->add('amount', null, [
+            ->add('amount', IntegerType::class, [
                 'label' => 'form.amount',
+            ])
+            ->add('snAccount', null, [
+                'label' => 'form.social_network_account',
             ])
         ;
     }
@@ -44,7 +48,7 @@ class CustomerType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Customer::class,
+            'data_class' => Order::class,
         ));
     }
 }

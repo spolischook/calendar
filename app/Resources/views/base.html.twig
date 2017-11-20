@@ -17,13 +17,22 @@
 
                 /*menu*/
                 header nav#menu-main {
-                    background-color: #434A54; margin: 0; display: flex; flex-direction: row; justify-content: space-between;
+                    background-color: #434A54;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    z-index: 100;
                 }
                 header ul { list-style-type: none; margin: 0; padding: 0; }
                 header ul li { float: left; }
                 header ul li a { display: block; padding: 5px 10px; }
                 header ul li a:hover,
                 header ul li a.active { background-color: #0088CC; }
+                nav#menu-main a { text-decoration: none; color: #fff }
+                nav#languages a { text-decoration: none; font-weight: bold; }
+
+                footer { background-color: #434A54; color: #F5F5F5; padding: 4px 6px; }
             </style>
         {% endblock %}
         {% endspaceless %}
@@ -36,6 +45,7 @@
                         {% include 'default/menu.html.twig' %}
                     {% endblock %}
             {% endblock %}
+            <footer>© {{ 'artist'|trans }}</footer>
         </div>
         {% spaceless %}
         {% block javascripts %}{% endblock %}

@@ -15,6 +15,20 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         $form = $this->createForm(CustomerType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entity = $form->getData();
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            $this->addFlash('success', 'flash.thanks_for_your_order');
+
+            return $this->redirectToRoute('index', ['_fragment' => 'main-header']);
+        }
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'form' => $form->createView(),
