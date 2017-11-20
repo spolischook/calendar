@@ -1,0 +1,158 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v2.11&appId=429038397494266';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+        <article itemscope itemtype="http://schema.org/VisualArtwork">
+            <h1 itemprop="name">{{ 'header.h1'|trans }}</h1>
+
+            {% if app.debug %}
+                <h2 class="device device-1">Desktop</h2>
+                <h2 class="device device-2">Laptops, Desktops</h2>
+                <h2 class="device device-3">Tablets, Ipads (portrait)</h2>
+                <h2 class="device device-4">Tablets, Ipads (landscape)</h2>
+                <h2 class="device device-5">Low Resolution Tablets, Mobiles (Landscape)</h2>
+                <h2 class="device device-6">Most of the Smartphones Mobiles (Portrait)</h2>
+                {#{% if not is_canonical(app.request) %}#}
+                    {#<h2>{{ dump('It\'s not canonical!') }}</h2>#}
+                {#{% endif %}#}
+                {#<h2>{{ dump(app.request.get('_locale')) }}</h2>#}
+                {#<h2>{{ dump(url('index', {'_locale': app.request.get('_locale')})) }}</h2>#}
+                {#<h2>{{ dump(canonical_url('index', {'_locale': app.request.get('_locale')})) }}</h2>#}
+            {% endif %}
+
+
+            <h2 itemprop="creator" itemscope itemtype="http://schema.org/Person">
+                {{ 'header.by'|trans }} <span itemprop="name">{{ 'artist'|trans }}</span>
+            </h2>
+            {#<h3 id="calendar">{{ 'header.calendar'|trans }}</h3>#}
+            <div id="calendar-images">
+                {% for i in 0..13 %}
+                    <img
+                            src="{{ asset('images/2018_calendar/400/'~i~'.jpg') }}"
+                            srcset="
+                                {{ asset('images/2018_calendar/280/'~i~'.jpg') }} 280w,
+                                {{ asset('images/2018_calendar/350/'~i~'.jpg') }} 350w,
+                                {{ asset('images/2018_calendar/400/'~i~'.jpg') }} 400w
+                            "
+                            sizes="
+                                (max-width: 320px) 280px,
+                                (max-width: 380px) 350px,
+                                (min-width: 420px) 400px
+                            "
+                    >
+                {% endfor %}
+            </div>
+            <h3 id="about-circle-of-life">{{ 'header.about'|trans }}</h3>
+            <div id="description" itemprop="description">
+                {{ 'about_calendar'|trans|raw }}
+                <video poster="{{ asset('videos/poster.png') }}" controls>
+                    <source src="{{ asset('videos/about_calendar.mov') }}" type="video/mp4">
+                    Your browser doesn't support HTML5 video tag.
+                </video>
+            </div>
+            <h3 id="about-artist">{{ 'header.about_artist'|trans }}</h3>
+                <div id="embedded-fb-page">
+                    <div class="fb-page" data-href="https://www.facebook.com/tetiana.cherevan/" data-tabs="timeline" data-width="1000px" data-height="800px" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/tetiana.cherevan/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/tetiana.cherevan/">Tetiana Cherevan</a></blockquote></div>
+                </div>
+            <h3 id="buy-it">{{ 'header.fill_form'|trans }}</h3>
+            <div id="customer-form">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button type="submit">{{ 'form.submit'|trans }}</button>
+                {{ form_end(form) }}
+            </div>
+        </article>
+        <footer>Foo</footer>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        nav#menu-main a { text-decoration: none; color: #fff }
+        nav#languages a { text-decoration: none; font-weight: bold; }
+        h1, h2 { line-height: 1.2; margin: 0 0 .5em; text-align: center; }
+        h1 { font-size: 36px; }
+        h2 { font-size: 21px; margin-bottom: 1em; }
+        p { margin: 0 0 1em 0; }
+        a { color: #0000F0; }
+        a:hover { text-decoration: none; }
+        article { min-height: 1000px; background-color: #6b9311; padding: 2em; }
+        article #calendar-images { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around }
+        article div#embedded-fb-page, article #description video { min-height: 500px; }
+        footer { background-color: #8959A8 }
+        form { display: block; }
+        video source { width: 100%; height: auto; }
+
+        .device { display: none; }
+
+        /*
+          ##Device = Desktops
+          ##Screen = 1281px to higher resolution desktops
+        */
+        @media (min-width: 1281px) {
+            video { max-width: 60%; }
+            .device-1 { display: block; }
+        }
+
+        /*
+          ##Device = Laptops, Desktops
+          ##Screen = B/w 1025px to 1280px
+        */
+
+        @media (min-width: 1025px) and (max-width: 1280px) {
+            video { max-width: 60%; }
+            .device-2 { display: block; }
+        }
+
+        /*
+          ##Device = Tablets, Ipads (portrait)
+          ##Screen = B/w 768px to 1024px
+        */
+
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            video { max-width: 80%; max-height: 1000px; }
+            .device-3 { display: block; }
+        }
+
+        /*
+          ##Device = Tablets, Ipads (landscape)
+          ##Screen = B/w 768px to 1024px
+        */
+
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            video { max-width: 60%; max-height: 700px; }
+            .device-4 { display: block; }
+        }
+
+        /*
+          ##Device = Low Resolution Tablets, Mobiles (Landscape)
+          ##Screen = B/w 481px to 767px
+        */
+
+        @media (min-width: 481px) and (max-width: 767px) {
+            video { max-width: 60%; }
+            article { padding: 1em; }
+            .device-5 { display: block; }
+        }
+
+        /*
+          ##Device = Most of the Smartphones Mobiles (Portrait)
+          ##Screen = B/w 320px to 479px
+        */
+
+        @media (min-width: 320px) and (max-width: 480px) {
+            video { max-width: 100%; }
+            article { padding: 1em; }
+            .device-6 { display: block; }
+        }
+    </style>
+{% endblock %}

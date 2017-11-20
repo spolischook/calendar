@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{{ 'header.h1'|trans }}{% endblock %}</title>
+        {% spaceless %}
+        {% block stylesheets %}
+            {% include 'default/canonical.html.twig' %}
+            <style>
+                @font-face {
+                    font-family: AvantGardeC;
+                    src: url({{ asset('fonts/AvantGardeC.otf') }}) format("opentype");
+                }
+                body { background: #F5F5F5; font: 18px/1.5 sans-serif; max-width: 100%; font-family: "AvantGardeC", serif; margin: 0; }
+                #container { max-width: 1000px; margin: auto; display: flex; flex-direction: column; flex-wrap: wrap; height: 100%; }
+
+                /*menu*/
+                header nav#menu-main {
+                    background-color: #434A54; margin: 0; display: flex; flex-direction: row; justify-content: space-between;
+                }
+                header ul { list-style-type: none; margin: 0; padding: 0; }
+                header ul li { float: left; }
+                header ul li a { display: block; padding: 5px 10px; }
+                header ul li a:hover,
+                header ul li a.active { background-color: #0088CC; }
+            </style>
+        {% endblock %}
+        {% endspaceless %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div id="container">
+            {% block body %}
+                    {% block menu %}
+                        {% include 'default/menu.html.twig' %}
+                    {% endblock %}
+            {% endblock %}
+        </div>
+        {% spaceless %}
+        {% block javascripts %}{% endblock %}
+        {% endspaceless %}
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<header>
+    <nav id="menu-main">
+        <nav id="navigation">
+            <ul>
+                <li><a href="#calendar">{{ 'menu.calendar'|trans }}</a></li>
+                <li><a href="#about-circle-of-life">{{ 'menu.about_project'|trans }}</a></li>
+                {#<li><a href="#about-artist">{{ 'menu.about_artist'|trans }}</a></li>#}
+                <li><a href="#buy-it">{{ 'menu.buy_it'|trans }}</a></li>
+            </ul>
+        </nav>
+        <nav id="languages">
+            <ul>
+                <li><a
+                            {% if 'uk' == app.request.locale %}
+                                class="active"
+                            {% endif %}
+                            href="{{ path('index', {'_locale': 'uk'}) }}"
+                    >
+                        {{ 'menu.language_uk'|trans|raw }}
+                    </a></li>
+                <li><a
+                            {% if 'en' == app.request.locale %}
+                                class="active"
+                            {% endif %}
+                            href="{{ path('index', {'_locale': 'en'}) }}"
+                    >
+                        {{ 'menu.language_en'|trans|raw }}
+                    </a></li>
+            </ul>
+        </nav>
+    </nav>
+</header>

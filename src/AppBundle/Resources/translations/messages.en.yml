@@ -1,0 +1,63 @@
+artist: Tetiana Cherevan
+
+form:
+  name: Name
+  phone: Phone
+  country: Country
+  city: City
+  np: Nova Poshta number
+  amount: Amount
+  submit: Order Calendar
+
+header:
+  h1: Art Calendar 2018
+  by: by
+  by_artist: Тетяни Черевань
+  calendar: Set of Views new Calendar 2018
+  about: About project "Circle of Life"
+  about_artist: Tetiana Chearvan, artist
+  fill_form: Fill the form, please
+
+menu:
+  calendar: Calendar
+  about_project: About Project
+  about_artist: About Artist
+  buy_it: Buy
+  language_en: |
+    Eng <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="40" height="20">
+        <clipPath id="t">
+        	<path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/>
+        </clipPath>
+        <path d="M0,0 v30 h60 v-30 z" fill="#00247d"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#cf142b" stroke-width="4"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#cf142b" stroke-width="6"/>
+        </svg>
+  language_uk: |
+    Укр <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20">
+       <rect width="40" height="20" fill="#005BBB"/>
+       <rect width="40" height="20" y="10" fill="#FFD500"/>
+       </svg>
+about_calendar: |
+  <p>The featured series of canvases was born during the artist’s journey to Ko Samui – a Thai island.
+  During the first visit, in 2014, Tetiana and her family came across an abandoned art gallery.
+  The local artist, who had once owned it, died long ago, yet, they met and made friends with his granddaughter.
+  During a new trip to Samui in 2017, Tatiana visited that place again to discover the gallery was in the awful state,
+  with leaking roof, crumbling walls and paintings, eaten by termites.
+  The artist decided to take and use some of the undamaged canvases in her new project.
+  Such a symbolical gesture of giving the paintings ‘a second life’ becomes even more eloquent considering the images
+  that originally were on them: all of the pieces initially were a curious sample of the zen calligraphic motif, known as ensō.
+  Ensō is a hand drawn circle, which for the Buddhists became a universal symbol of integrity, enlightenment,
+  the cyclical nature of existence, as well as a visualization of Void: as a the Heart Sutra reads, “Form is void and void is form.”</p>
+
+error:
+  500:
+    title: Oops! Something went wrong...
+    description: |
+      <p>Please, contact with <a href="mailto: spolischook@gmail.com">administrator</a></p>
+      <p>And\or go to the <a href="/">Main page</a></p>
+  404:
+    title: Oops! We can't find that page...
+    description: |
+      <p>Please, follow to the <a href="/">Main page</a>, I wish you find something there ;)</p>

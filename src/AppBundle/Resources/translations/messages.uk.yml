@@ -1,0 +1,56 @@
+artist: Тетяна Черевань
+
+form:
+  name: Призвище та Ім'я
+  phone: Телефон
+  country: Країна
+  city: Місто
+  np: Номер нової пошти
+
+header:
+  h1: Арт Календар 2018
+  by: ''
+  by_artist: Тетяни Черевань
+  calendar: Друкований настінний календар з авторськими работами
+  about: Проект "Коло Життя"
+  about_artist: Тетяна Черевань, художник
+  fill_form: Заповніть, будь-ласочка, форму замовлення Календаря 2018
+  language_en: |
+    Eng <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="40" height="20">
+        <clipPath id="t">
+        	<path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/>
+        </clipPath>
+        <path d="M0,0 v30 h60 v-30 z" fill="#00247d"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#cf142b" stroke-width="4"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#cf142b" stroke-width="6"/>
+        </svg>
+  language_uk: |
+    Укр <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20">
+        <rect width="40" height="20" fill="#005BBB"/>
+        <rect width="40" height="20" y="10" fill="#FFD500"/>
+        </svg>
+
+menu:
+  calendar: Календар
+  about_project: Проект
+  about_artist: Про Художника
+  buy_it: Купити
+about_calendar: |
+  <p>Одна із якостей, що вирізняє талановитих митців – це вміння імпровізувати та слідувати знакам Життя.
+  Вони добре знають цінність Випадковості, коли, на перший погляд незначні, деталі втручаються у творчий процес,
+  врешті-решт направляючи його у зовсім інше, нове русло.
+  Саме так, із дивного, майже містичного, збігу життєвих обставин та інтуїтивних інсайтів,
+  народилось чимало робіт які увійшли до Арт Календаря 2018.</p>
+
+error:
+  500:
+    title: Ой! Щось пішло не так...
+    description: |
+      <p>Будь ласка, зв'яжіться з <a href="mailto: spolischook@gmail.com">адміністратором</a></p>
+      <p>Та/або перейдіть на <a href="/">головну сторинку</a></p>
+  404:
+    title: Ой! Ми не знайшли сторінку...
+    description: |
+      <p>Будь ласка, перейдіть на <a href="/">Головну сторинку</a>, думаю ви щось знайдете там ;)</p>
