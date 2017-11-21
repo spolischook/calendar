@@ -3,6 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Open Graph data -->
+        <meta property="og:title" content="{{ 'header.h1'|trans }}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="{{ canonical_url }}" />
+        <meta property="og:image" content="{{ asset('images/2018_calendar/400/main.jpg') }}" />
+        <meta property="og:description" content="{{ 'head.description'|trans }}" />
+
         <title>{% block title %}{{ 'header.h1'|trans }}{% endblock %}</title>
         {% spaceless %}
         {% block stylesheets %}

@@ -41,6 +41,7 @@ twig:
     globals:
         locale_supported: '%locale_supported%'
         default_route: '%default_route%'
+        canonical_url: '%canonical_url%'
 
 # Doctrine Configuration
 doctrine:
