@@ -1,0 +1,16 @@
+{% set route = app.request.attributes.get('_route') %}
+<!-- Open Graph data -->
+<meta property="og:title" content="{{ 'header.h1'|trans }}" />
+<meta property="og:type" content="article" />
+{% if route is not empty  %}
+    <meta property="og:url" content="{{
+        canonical_url(
+            route,
+            app.request.attributes.get('_route_params')
+        )
+    }}" />
+{% endif %}
+
+<meta property="og:image" content="{{ canonical_url }}{{ asset('images/2018_calendar/400/main.jpg') }}" />
+<meta property="og:description" content="{{ 'head.description'|trans }}" />
+<meta property="fb:app_id" content="429038397494266" />
