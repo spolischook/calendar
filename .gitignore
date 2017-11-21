@@ -17,3 +17,4 @@
 /web/bundles/
 /web/images/2018_calendar/orig/*
 /bin/*
+db.sqlite
