@@ -1,0 +1,40 @@
+<div id="customer-form">
+    {{ form_start(form) }}
+    <div>
+        {{ form_label(form.name) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name) }}
+    </div>
+    <div>
+        {{ form_label(form.phone) }}
+        {{ form_errors(form.phone) }}
+        {{ form_widget(form.phone) }}
+    </div>
+    <div>
+        {{ form_label(form.country) }}
+        {{ form_errors(form.country) }}
+        {{ form_widget(form.country) }}
+    </div>
+    <div>
+        {{ form_label(form.city) }}
+        {{ form_errors(form.city) }}
+        {{ form_widget(form.city) }}
+    </div>
+    <div>
+        {{ form_label(form.np) }}
+        {{ form_errors(form.np) }}
+        {{ form_widget(form.np) }}
+    </div>
+    <div>
+        {{ form_label(form.amount) }}
+        {{ form_errors(form.amount) }}
+        {{ form_widget(form.amount) }}
+    </div>
+    <div>
+        {{ form_label(form.snAccount) }}
+        {{ form_errors(form.snAccount) }}
+        {{ form_widget(form.snAccount) }}
+    </div>
+    <button type="submit">{{ 'form.submit'|trans }}</button>
+    {{ form_end(form) }}
+</div>
